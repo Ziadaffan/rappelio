@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "notice": {
+      "poweredBy": "Powered by"
+    },
+    "tabs": {
+      "about": "À propos"
+    },
+    "about": {
+      "title": "Bienvenue sur Rappelio !",
+      "description": "Cette application vous aide à vous souvenir de vos tâches quotidiennes et de vos achats. Ajoutez rapidement ce que vous devez faire ou acheter, et recevez des rappels pour ne jamais rien oublier. Simple, rapide et conçu pour vous garder sur la bonne voie chaque jour."
+    },
+    "errors": {}
+  }
+}

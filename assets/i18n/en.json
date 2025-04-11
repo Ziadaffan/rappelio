@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "notice": {
+      "poweredBy": "Powered by"
+    },
+    "tabs": {
+      "about": "About"
+    },
+    "about": {
+      "title": "Welcome to Rappelio !",
+      "description": "This app helps you remember your daily chores and shopping tasks. Quickly add what you need to do or buy, and get reminders so you never forget anything again. Simple, fast, and made to keep you on track every day."
+    },
+    "errors": {}
+  }
+}

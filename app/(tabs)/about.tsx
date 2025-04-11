@@ -1,49 +1,38 @@
 import { StyleSheet } from "react-native";
-import { Text, View } from "@/components/Themed";
+import { ThemedView, ThemedText } from "@/components/Themed";
+import { TAB_CONTAINER_MARGIN_TOP } from "@/constants/Spacing";
+import { TAB_TITLE_MARGIN_BOTTOM } from "@/constants/Spacing";
+import { TAB_TITLE_MARGIN_LEFT } from "@/constants/Spacing";
+import { TAB_CONTENT_CONTAINER_PADDING_HORIZONTAL } from "@/constants/Spacing";
+import { useTranslation } from "react-i18next";
 
 export default function DetailsScreen() {
+  const { t } = useTranslation();
   return (
-    <View style={styles.container}>
-      <View style={styles.contentContainer}>
-        <Text style={styles.title}>Welcome to Rappelio !</Text>
-        <Text style={styles.description}>
-          This app helps you remember your daily chores and shopping tasks.
-          Quickly add what you need to do or buy, and get reminders so you never
-          forget anything again. Simple, fast, and made to keep you on track
-          every day.
-        </Text>
-      </View>
-    </View>
+    <ThemedView style={styles.container}>
+      <ThemedView style={styles.contentContainer}>
+        <ThemedText type="title" style={styles.title}>
+          {t("about.title")}
+        </ThemedText>
+        <ThemedText type="default" style={styles.description}>
+          {t("about.description")}
+        </ThemedText>
+      </ThemedView>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    marginTop: 50,
-  },
-  contentContainer: {
-    width: "100%",
-    maxWidth: 600,
-    padding: 16,
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 3,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: TAB_CONTAINER_MARGIN_TOP,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 12,
-    textAlign: "center",
+    marginBottom: TAB_TITLE_MARGIN_BOTTOM,
+    marginLeft: TAB_TITLE_MARGIN_LEFT,
+  },
+  contentContainer: {
+    paddingHorizontal: TAB_CONTENT_CONTAINER_PADDING_HORIZONTAL,
   },
   description: {
     fontSize: 16,

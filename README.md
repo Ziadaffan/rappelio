@@ -29,31 +29,34 @@ A modern React Native application built with Expo and TypeScript.
 
 ## 🔧 Installation
 
-1. Clone the repository:
+Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/rappelio.git
 ```
 
-2. Install dependencies:
+Install dependencies:
+
 ```bash
-npm install
-# or
 yarn install
 ```
 
 ## 📱 Running the App
 
 ```bash
+# For build
 npx expo prebuild
 ```
 
 ```bash
+# To run the app
 npx expo start -c --go
 ```
 
 ## 🧪 Testing
 
 Run the test suite:
+
 ```bash
 npm test
 # or

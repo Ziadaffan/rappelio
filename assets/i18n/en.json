@@ -4,7 +4,12 @@
       "poweredBy": "Powered by"
     },
     "tabs": {
-      "about": "About"
+      "about": "About",
+      "home" : "Home"
+    },
+    "home": {
+      "title": "Home",
+      "description": "This is the home page"
     },
     "about": {
       "title": "Welcome to Rappelio !",

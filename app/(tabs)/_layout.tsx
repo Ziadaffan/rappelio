@@ -1,23 +1,16 @@
 import React from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 import { HapticTab } from "@/components/HapticTab";
 import TabBarBackground from "@/components/ui/TabBarBackground.ios";
-
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Platform } from "react-native";
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { useTranslation } from "react-i18next";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  const { t } = useTranslation();
   return (
     <Tabs
       screenOptions={{
@@ -36,15 +29,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          title: t("tabs.home"),
+          tabBarIcon: ({ color }) => <IconSymbol name="house.fill" color={color} />,
         }}
       />
       <Tabs.Screen
         name="about"
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="info-circle" color={color} />
-          ),
+          title: t("tabs.about"),
+          tabBarIcon: ({ color }) => <IconSymbol name="info.circle.fill" color={color} />,
         }}
       />
     </Tabs>

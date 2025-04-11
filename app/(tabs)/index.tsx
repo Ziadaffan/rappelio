@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
 import { View } from "@/components/Themed";
-import ComingSoonComponent from "@/components/ComingSoonComponent";
+import HomeComponent from "@/components/home/HomeComponent";
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <ComingSoonComponent />
+      <HomeComponent />
     </View>
   );
 }

@@ -20,7 +20,6 @@ export const createApiClientWithToken = async () => {
 };
 
 export const createApiClient = async () => {
-  console.log("API URL:", API_URL);
   return axios.create({
     baseURL: API_URL,
     headers: {

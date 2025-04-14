@@ -5,11 +5,29 @@
     },
     "tabs": {
       "about": "About",
-      "home" : "Home"
+      "home" : "Home",
+      "profile" : {
+        "title" : "Profile",
+        "description" : "This is the profile page",
+        "logout" : "Logout",
+        "memberSince" : "Member since",
+        "dateOfBirth" : "Date of Birth",
+        "editImage" : "Edit Image",
+        "name" : "Name",
+        "role" : "Role",
+        "tasksCompleted" : "Tasks Completed",
+        "projectsActive" : "Projects Active",
+        "email" : "Email",
+        "phone" : "Phone"
+      }
     },
     "home": {
       "title": "Home",
       "description": "This is the home page"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "This is the profile page"
     },
     "about": {
       "title": "Welcome to Rappelio",
@@ -23,6 +41,9 @@
    },
     "success": {
       "loginSuccess": "Login successful !"
+    },
+    "logout": {
+      "title": "Logout"
     }
   }
 }

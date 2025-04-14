@@ -26,9 +26,7 @@ export const useLogin = () => {
     setSuccess("");
 
     try {
-      console.log(email, password);
       if (!isValidInputs()) {
-        console.log(t("errors.invalidInputs"));
         setError(t("errors.invalidInputs"));
         setIsLoading(false);
         return;
@@ -41,17 +39,15 @@ export const useLogin = () => {
       });
 
       const data = await response.data;
-      console.log(data);
 
       if (response.status === 200) {
         setSuccess(t("success.loginSuccess"));
         await saveToken(data.token);
-        router.replace("/(tabs)");
+        router.replace("/(tabs)/about");
       } else {
         setError(data.message || t("errors.loginFailed"));
       }
     } catch (err: any) {
-      console.log(err);
       if (err.response?.status === 401) {
         setError(t("errors.invalidEmailOrPassword"));
       } else {

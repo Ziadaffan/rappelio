@@ -5,11 +5,29 @@
     },
     "tabs": {
       "about": "À propos",
-      "home": "Accueil"
+      "home": "Accueil",
+      "profile": {
+        "title" : "Profil",
+        "description" : "Cette est la page de profil",
+        "logout" : "Déconnexion",
+        "memberSince" : "Membre depuis",
+        "dateOfBirth" : "Date de naissance",
+        "editImage" : "Modifier l'image",
+        "name" : "Nom",
+        "role" : "Rôle",
+        "tasksCompleted" : "Tâches complétées",
+        "projectsActive" : "Projets actifs",
+        "email" : "Email",
+        "phone" : "Téléphone"
+      }
     },
     "home": {
       "title": "Accueil",
       "description": "Cette est la page d'accueil"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Cette est la page de profil"
     },
     "about": {
       "title": "Bienvenue sur Rappelio",
@@ -23,6 +41,9 @@
     },
     "success": {
       "loginSuccess": "Connexion réussie !"
+    },
+    "logout": {
+      "title": "Déconnexion"
     }
   }
 }

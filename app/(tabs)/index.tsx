@@ -1,12 +1,16 @@
 import { StyleSheet } from "react-native";
-
 import { View } from "@/components/Themed";
-import HomeComponent from "@/components/home/HomeComponent";
+import LogInComponent from "@/components/authentification/login/LogInComponent";
+
+const API_URL = process.env.EXPO_PUBLIC_API_URL ?? '';
+const API_KEY = process.env.EXPO_PUBLIC_API_KEY ?? '';
 
 export default function TabOneScreen() {
-  return (
+  console.log(`API URL is ${API_URL}`);
+  console.log(`API KEY is ${API_KEY}`);
+  return (  
     <View style={styles.container}>
-      <HomeComponent />
+      <LogInComponent />
     </View>
   );
 }

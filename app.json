@@ -34,7 +34,8 @@
     },
     "plugins": [
       "expo-router",
-      "expo-localization"
+      "expo-localization",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
@@ -46,6 +47,7 @@
       "eas": {
         "projectId": "8d5bc503-46ea-4b05-acb3-8babe9412272"
       }
+      
     }
   }
 }

@@ -3,3 +3,9 @@ export const TAB_TITLE_MARGIN_BOTTOM = 20;
 export const TAB_TITLE_MARGIN_LEFT = 20;
 export const TAB_CONTAINER_MARGIN_TOP = 110;
 export const TAB_CONTENT_CONTAINER_PADDING_HORIZONTAL = 20;
+export const ContainerStyle = () => {
+  return {
+    paddingHorizontal: TAB_CONTENT_CONTAINER_PADDING_HORIZONTAL,
+    paddingTop: TAB_CONTAINER_MARGIN_TOP,
+  };
+};

@@ -21,6 +21,26 @@
         "phone" : "Phone"
       }
     },
+    "login": {
+      "title": "Login",
+      "welcome": "Welcome Back",
+      "email": "Email",
+      "password": "Password",
+      "login": "Login",
+      "dontHaveAccount": "Don't have an account? Sign up"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "welcome": "Welcome to Rappelio",
+      "email": "Email",
+      "password": "Password",
+      "signup": "Sign Up",
+      "name": "Name",
+      "dateOfBirth": "Date of Birth",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female"
+    },
     "home": {
       "title": "Home",
       "description": "This is the home page"
@@ -38,12 +58,16 @@
       "loginFailed": "Login failed",
       "errorOccurred": "An error occurred. Please try again.",
       "invalidEmailOrPassword": "Invalid email or password"
-   },
+    },
     "success": {
       "loginSuccess": "Login successful !"
     },
     "logout": {
       "title": "Logout"
+    },
+    "confirm": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
     }
   }
 }

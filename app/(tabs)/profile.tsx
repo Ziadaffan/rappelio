@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import { User } from "@/services/user";
 import { formatDate } from "./utils/profile.utils";
 import * as Localization from "expo-localization";
+import { router } from "expo-router";
+import { deleteToken } from "@/store/authentification";
 
 export default function Profile() {
   const { t } = useTranslation();
@@ -30,6 +32,11 @@ export default function Profile() {
   useEffect(() => {
     setUser(data);
   }, [data]);
+
+  const logouHandler = async () => {
+    await deleteToken();
+    router.replace("/login");
+  };
 
   return (
     <ScrollView
@@ -180,6 +187,7 @@ export default function Profile() {
             ]}
           >
             <TouchableOpacity
+              onPress={logouHandler}
               style={[
                 styles.settingItem,
                 {

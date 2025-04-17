@@ -43,7 +43,9 @@ export const useLogin = () => {
       if (response.status === 200) {
         setSuccess(t("success.loginSuccess"));
         await saveToken(data.token);
-        router.replace("/(tabs)/about");
+        setTimeout(() => {
+          router.replace("/(tabs)/about");
+        }, 1000);
       } else {
         setError(data.message || t("errors.loginFailed"));
       }

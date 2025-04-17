@@ -1,6 +1,5 @@
 import { ThemedText, ThemedView } from "@/components/Themed";
 import {
-  StyleSheet,
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
@@ -8,13 +7,13 @@ import {
   Animated,
   ActivityIndicator,
 } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRef, useEffect } from "react";
 import { useRouter } from "expo-router";
-import { ContainerStyle } from "@/constants/Spacing";
-import { Colors, Spacing, BorderRadius, FontSize } from "@/constants/Colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useLogin } from "@/hooks/useLogin";
+import { useTranslation } from "react-i18next";
 
 export default function LogInComponent() {
   const {
@@ -27,7 +26,7 @@ export default function LogInComponent() {
     handleLogin,
     success,
   } = useLogin();
-  
+  const { t } = useTranslation();
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === "dark";
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -50,152 +49,79 @@ export default function LogInComponent() {
   }, []);
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={ContainerStyle()}
-    >
-      <Animated.View
-        style={[
-          styles.formContainer,
-          { opacity: fadeAnim, transform: [{ translateY: slideAnim }] },
-        ]}
+    <SafeAreaView className={`flex-1 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        className="flex-1"
       >
-        <ThemedText style={styles.title}>Welcome Back</ThemedText>
-
-        {error ? <ThemedText style={styles.error}>{error}</ThemedText> : null}
-        {success ? <ThemedText style={styles.success}>{success}</ThemedText> : null}
-
-        <ThemedView style={styles.inputContainer}>
-          <MaterialIcons
-            name="email"
-            size={24}
-            color={isDarkMode ? Colors.dark.icon : Colors.light.icon}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            style={[
-              styles.input,
-              { color: isDarkMode ? Colors.dark.text : Colors.light.text },
-            ]}
-            placeholder="Email"
-            placeholderTextColor={
-              isDarkMode ? Colors.dark.icon : Colors.light.icon
-            }
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-        </ThemedView>
-
-        <ThemedView style={styles.inputContainer}>
-          <MaterialIcons
-            name="lock"
-            size={24}
-            color={isDarkMode ? Colors.dark.icon : Colors.light.icon}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            style={[
-              styles.input,
-              { color: isDarkMode ? Colors.dark.text : Colors.light.text },
-            ]}
-            placeholder="Password"
-            placeholderTextColor={
-              isDarkMode ? Colors.dark.icon : Colors.light.icon
-            }
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-        </ThemedView>
-
-        <TouchableOpacity
-          style={[styles.button, isLoading && styles.buttonDisabled]}
-          onPress={handleLogin}
-          disabled={isLoading}
+        <Animated.View
+          className="flex-1 px-6 py-8"
+          style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}
         >
-          {isLoading ? (
-            <ActivityIndicator color={Colors.background.default} />
-          ) : (
-            <ThemedText style={styles.buttonText}>Log In</ThemedText>
-          )}
-        </TouchableOpacity>
+          <ThemedText className="text-5xl font-bold mb-10">{t("login.welcome")}</ThemedText>
 
-        <TouchableOpacity
-          style={styles.linkButton}
-          onPress={() => router.push("/")}
-        >
-          <ThemedText style={styles.linkText}>
-            Don't have an account? Sign up
-          </ThemedText>
-        </TouchableOpacity>
-      </Animated.View>
-    </KeyboardAvoidingView>
+          {error ? <ThemedText className="text-red-500 mb-4 text-center">{error}</ThemedText> : null}
+          {success ? <ThemedText className="text-green-500 mb-4 text-center">{success}</ThemedText> : null}
+
+          <ThemedView className="flex-row items-center mb-6 rounded-lg border border-gray-200">
+            <ThemedView className="pl-4 pr-2 justify-center">
+              <MaterialIcons
+                name="email"
+                size={24}
+                color={isDarkMode ? "#fff" : "#000"}
+              />
+            </ThemedView>
+            <TextInput
+              className={`flex-1 h-14 pr-4 pb-2 text-base ${isDarkMode ? 'text-white' : 'text-black'}`}
+              placeholder={t("login.email")}
+              placeholderTextColor={isDarkMode ? "#666" : "#999"}
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+          </ThemedView>
+
+          <ThemedView className="flex-row items-center mb-6 rounded-lg border border-gray-200">
+            <ThemedView className="pl-4 pr-2 justify-center">
+              <MaterialIcons
+                name="lock"
+                size={24}
+                color={isDarkMode ? "#fff" : "#000"}
+              />
+            </ThemedView>
+            <TextInput
+              className={`flex-1 h-14 pr-4 pb-2 text-base ${isDarkMode ? 'text-white' : 'text-black'}`}
+              placeholder={t("login.password")}
+              placeholderTextColor={isDarkMode ? "#666" : "#999"}
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+            />
+          </ThemedView>
+
+          <TouchableOpacity
+            className={`w-full h-14 bg-blue-500 rounded-lg justify-center items-center mt-6 ${isLoading ? 'opacity-50' : ''}`}
+            onPress={handleLogin}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color="#fff" />
+            ) : (
+              <ThemedText className="text-white text-base font-bold">{t("login.login")}</ThemedText>
+            )}
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            className="mt-6 items-center"
+            onPress={() => router.push("/signup")}
+          >
+            <ThemedText className="text-blue-500 text-sm">
+              {t("login.dontHaveAccount")}
+            </ThemedText>
+          </TouchableOpacity>
+        </Animated.View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  formContainer: {
-    flex: 1,
-  },
-  title: {
-    fontSize: FontSize.title,
-    fontWeight: "bold",
-    marginBottom: Spacing.xl,
-    paddingTop: Spacing.xxl,
-    marginTop: Spacing.xxl,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: Spacing.md,
-    borderRadius: BorderRadius.md,
-    borderWidth: 1,
-    borderColor: Colors.border.light,
-  },
-  inputIcon: {
-    padding: Spacing.md,
-  },
-  input: {
-    flex: 1,
-    height: 50,
-    paddingHorizontal: Spacing.md,
-    fontSize: 16,
-  },
-  button: {
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.primary.main,
-    borderRadius: BorderRadius.md,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: Spacing.lg,
-  },
-  buttonDisabled: {
-    backgroundColor: Colors.primary.light,
-  },
-  buttonText: {
-    color: Colors.background.default,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  error: {
-    color: Colors.error.main,
-    marginBottom: Spacing.md,
-    textAlign: "center",
-  },
-  success: {
-    color: Colors.success.main,
-    marginBottom: Spacing.md,
-    textAlign: "center",
-  },
-  linkButton: {
-    marginTop: Spacing.lg,
-    alignItems: "center",
-  },
-  linkText: {
-    color: Colors.primary.main,
-    fontSize: 14,
-  },
-});

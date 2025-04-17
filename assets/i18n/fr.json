@@ -21,6 +21,27 @@
         "phone" : "Téléphone"
       }
     },
+    "login": {
+      "title": "Connexion",
+      "welcome": "Bienvenue de retour",
+      "email": "Email",
+      "password": "Mot de passe",
+      "login": "Connexion",
+      "forgotPassword": "Mot de passe oublié ?"
+    },
+    "signup": {
+      "title": "Inscription",
+      "welcome": "Bienvenue sur Rappelio",
+      "email": "Email",
+      "password": "Mot de passe",
+      "signup": "Inscription",
+      "name": "Nom",
+      "dateOfBirth": "Date de naissance",
+      "gender": "Sexe",
+      "male": "Homme",
+      "female": "Femme"
+
+    },
     "home": {
       "title": "Accueil",
       "description": "Cette est la page d'accueil"
@@ -44,6 +65,10 @@
     },
     "logout": {
       "title": "Déconnexion"
+    },
+    "confirm": {
+      "cancel": "Annuler",
+      "confirm": "Confirmer"
     }
   }
 }
